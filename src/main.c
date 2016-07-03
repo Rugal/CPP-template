@@ -4,10 +4,10 @@
 
 int main()
 {
-	Stack* s=createStack();
-	push(s,1);
-	int data = pop(s);
+    Stack* s=createStack();
+    push(s,1);
+    int data = pop(s);
     printf("%d", data);
     deleteStack(s);
-	return 0;
+    return 0;
 }
