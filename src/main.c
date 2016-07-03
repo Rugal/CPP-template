@@ -1,15 +1,13 @@
-#include<stdio.h>
-#include<stdbool.h>
-#include<stdlib.h>
-#include"util.h"
-#include"Stack.h"
+#include <stdio.h>
+#include "sort.h"
 
 
 int main()
 {
 	Stack* s=createStack();
 	push(s,1);
-	TYPE date=getTop(s);
-	pop(s);
+	int data = pop(s);
+    printf("%d", data);
+    deleteStack(s);
 	return 0;
 }

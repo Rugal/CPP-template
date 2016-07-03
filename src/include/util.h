@@ -4,7 +4,6 @@
  * used by all of this project
  */
 #pragma once
-#include<stdio.h>
 #include<stdlib.h>
 #include<malloc.h>
 #include<time.h>
