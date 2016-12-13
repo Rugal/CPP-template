@@ -1,15 +1,23 @@
 cmake_minimum_required(VERSION 2.8.7)
 PROJECT(Rugal C)
-find_package(Curses REQUIRED)
-SET(SRC_LIST src/main.c src/implment/Stack.c src/implment/Node.c)
 SET(CMAKE_C_FLAGS "-O0 -ggdb -w -std=c99")
 SET(CMAKE_C_COMPILER gcc)
-SET(LIBRARIES libm.so)
-INCLUDE_DIRECTORIES(src/include)
 
-ADD_EXECUTABLE(Rugal ${SRC_LIST})
-#TARGET_LINK_LIBRARIES(Rugal ${LIBRARIES})
-#TARGET_LINK_LIBRARIES(Rugal ${CURSES_LIBRARIES})
+INCLUDE_DIRECTORIES(
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/include
+)
+
+SET(SOURCE
+    ${SOURCE}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/main.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/implement/Point.c
+)
+#SET(LIBRARIES libm.so)
+
+FIND_PACKAGE(Curses REQUIRED)
+ADD_EXECUTABLE(Rugal ${SOURCE})
+TARGET_LINK_LIBRARIES(Rugal ${CURSES_LIBRARIES})
+
 
 #cmake_minimum_required(VERSION 2.6)
 #PROJECT(Rugal CXX)
