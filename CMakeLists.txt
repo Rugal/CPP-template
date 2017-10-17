@@ -1,3 +1,4 @@
+#C
 cmake_minimum_required(VERSION 2.8.7)
 PROJECT(Rugal C)
 SET(CMAKE_C_FLAGS "-O0 -ggdb -w -std=c99")
@@ -18,15 +19,15 @@ FIND_PACKAGE(Curses REQUIRED)
 ADD_EXECUTABLE(Rugal ${SOURCE})
 TARGET_LINK_LIBRARIES(Rugal ${CURSES_LIBRARIES})
 
+#CPP
+cmake_minimum_required(VERSION 3.0)
+project (Lab3 CXX)
 
-#cmake_minimum_required(VERSION 2.6)
-#PROJECT(Rugal CXX)
-#SET(SRC_LIST src/main.c src/implmentation/sort.c src/implmentation/stack.c)
-#SET(SRC_LIST src/main.cpp)
-#INCLUDE_DIRECTORIES(src/header)
-#message(${PROJECT_SOURCE_DIR})
-#ADD_EXECUTABLE(Rugal ${SRC_LIST})
-#SET(CMAKE_CPP_FLAGS "-O0 -g -ggdb -Wall")
-#SET(CMAKE_C_COMPILER gcc)
-#SET(CMAKE_CPP_COMPILER g++)
-#SET(CMAKE_CPP_COMPILER_ENV_VAR g++)
+# just for example add some compiler flags
+SET(CMAKE_CXX_FLAGS "-O0 -std=c++11 -g -ggdb -Wall -Wfloat-conversion")
+SET(CMAKE_CXX_COMPILER g++)
+SET(CMAKE_CXX_COMPILER_ENV_VAR g++)
+
+file(GLOB_RECURSE source src/main.cpp src/header/*.h src/implement/*.cpp)
+message(${source})
+add_executable(Lab3 ${source})
