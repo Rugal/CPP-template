@@ -2,8 +2,11 @@
 #include <string>
 #include <vector>
 #include "Command.h"
+#include "DeleteCommand.h"
 #include "InsertCommand.h"
 #include "ModifyCommand.h"
+#include "PrintCommand.h"
+#include "PrintNodeCommand.h"
 #include "CommandFactory.h"
 
 string CommandFactory::trimString(const string &inputLine) {
@@ -37,7 +40,16 @@ Command* CommandFactory::dispatchCommand(const vector<string> commands) {
         return new InsertCommand(commands);
     }
     if (!commands[0].compare("modifyR")) {
-        return new InsertCommand(commands);
+        return new ModifyCommand(commands);
+    }
+    if (!commands[0].compare("printR")) {
+        return new PrintCommand(commands);
+    }
+    if (!commands[0].compare("printNode")) {
+        return new PrintNodeCommand(commands);
+    }
+    if (!commands[0].compare("deleteR")) {
+        return new DeleteCommand(commands);
     }
     return new Command(commands);
 }
