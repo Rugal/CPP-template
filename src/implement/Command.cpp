@@ -4,6 +4,9 @@
 
 using namespace std;
 
+Command::Command() {
+}
+
 Command::Command(vector<string> inputCommands) {
     this->commands = inputCommands;
 }

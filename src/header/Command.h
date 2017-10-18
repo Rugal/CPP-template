@@ -10,6 +10,7 @@ class Command {
 protected:
     vector<string> commands;
 public:
+    Command();
     Command(vector<string> commands);
     virtual ~Command();
 
