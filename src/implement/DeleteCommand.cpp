@@ -12,5 +12,10 @@ DeleteCommand::~DeleteCommand() {
 }
 
 string DeleteCommand::execute() {
-    return "Deleted: resistor name";
+    if (this->commands.size() < 2)
+        return "Invalid Command";
+
+    return this->commands[1].compare("all")
+        ? "Deleted: resistor name"
+        : "Deleted: all resistors";
 }

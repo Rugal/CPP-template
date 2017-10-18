@@ -12,5 +12,7 @@ InsertCommand::~InsertCommand() {
 }
 
 string InsertCommand::execute() {
-    return "Inserted: resistor name resistance Ohms nodeid -> nodeid";
+    return (this->commands.size() < 5)
+        ? "Invalid Command"
+        : "Inserted: resistor " + this->commands[1] + " " + this->commands[2] + " Ohms "+ this->commands[3] +" -> " + this->commands[4];
 }

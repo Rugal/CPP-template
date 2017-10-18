@@ -12,5 +12,10 @@ PrintNodeCommand::~PrintNodeCommand() {
 }
 
 string PrintNodeCommand::execute() {
-    return "Print: node nodeid";
+    if (this->commands.size() < 2)
+        return "Invalid Command";
+
+    return this->commands[1].compare("all")
+        ? "Print: node nodeid"
+        : "Print: all resistors";
 }

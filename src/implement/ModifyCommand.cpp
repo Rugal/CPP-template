@@ -12,5 +12,7 @@ ModifyCommand::~ModifyCommand() {
 }
 
 string ModifyCommand::execute() {
-    return "Modified: resistor name to resistance Ohms";
+    return (this->commands.size() < 3)
+        ? "Invalid Command"
+        : "Modified: resistor name to resistance Ohms";
 }

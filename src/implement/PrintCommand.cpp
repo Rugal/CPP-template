@@ -12,5 +12,10 @@ PrintCommand::~PrintCommand() {
 }
 
 string PrintCommand::execute() {
-    return "Print: resistor name";
+    if (this->commands.size() < 2)
+        return "Invalid Command";
+
+    return this->commands[1].compare("all")
+        ? "Print: resistor name"
+        : "Print: all resistors";
 }
