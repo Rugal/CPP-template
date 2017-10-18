@@ -1,30 +1,19 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
-#include <functional>
-#include <map>
 #include <string>
 #include <vector>
 
 using namespace std;
 
 class Command {
-private:
+protected:
     vector<string> commands;
-    map<string, std::function<string(Command&)>>  funcMap;
-
-    string trimString(const string &inputLine);
-    vector<string> splitString(const string& inputLine);
-    string deleteR();
-    string insertR();
-    string modifyR();
-    string printNode();
-    string printR();
 public:
-    Command(const string &line);
-    ~Command();
+    Command(vector<string> commands);
+    virtual ~Command();
 
-    string print();
+    virtual string execute() {return "Invalid Command";}
 };
 
 #endif /* COMMAND_H */

@@ -8,6 +8,6 @@ SET(CMAKE_CXX_COMPILER g++)
 SET(CMAKE_CXX_COMPILER_ENV_VAR g++)
 
 INCLUDE_DIRECTORIES(src/header)
-file(GLOB_RECURSE source src/main.cpp src/implement/*.cpp)
+file(GLOB_RECURSE source "src/main.cpp" "src/implement/*.cpp")
 message(${source})
 add_executable(Lab3 ${source})
