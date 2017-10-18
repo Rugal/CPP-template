@@ -4,11 +4,13 @@
 
 using namespace std;
 
-
 int main() {
     string inputLine;
     getline(cin, inputLine);
-    Command c(inputLine);
-    cout << c.print() << endl;
+    while(!cin.eof()) {
+        Command c(inputLine);
+        cout << c.print() << endl;
+        getline(cin, inputLine);
+    }
     return 0;
 }

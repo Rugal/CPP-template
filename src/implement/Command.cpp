@@ -6,7 +6,11 @@
 #include <vector>
 #include "Command.h"
 
+#define MAX_NODE_NUMBER 5000
+
 using namespace std;
+
+static const string INVALID = "Invalid command";
 
 string Command::trimString(const string &inputLine) {
     stringstream stringStream(inputLine);
@@ -38,11 +42,14 @@ Command::~Command() {
 }
 
 string Command::print() {
-    cout << this->commands[0] << endl;
-    return this->funcMap[this->commands[0]](*this);
+    return (this->commands.size() <= 0 || this->funcMap.find(this->commands[0]) == this->funcMap.end())
+        ? INVALID
+        : this->funcMap[this->commands[0]](*this);
 }
 
 string Command::insertR() {
+    if (this->commands.size() < 5)
+        return INVALID;
     return "Inserted: resistor name resistance Ohms nodeid -> nodeid";
 }
 
